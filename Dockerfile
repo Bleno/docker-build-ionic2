@@ -37,7 +37,7 @@ RUN mkdir -p /opt/android-sdk \
     && unzip tools_r25.2.3-linux.zip
 
 
-RUN echo yes | /opt/android-sdk/tools/android update sdk -u -a -t 1,2,16,42,115,166,172,173,34,36 
+RUN echo yes | /opt/android-sdk/tools/android update sdk -u -a -t 1,2,3,42,115,166,172,173,34,35,36 
 
 RUN mv /opt/android-sdk/tools /opt/android-sdk/temp/ToolPackage.old01. \
     && mkdir /opt/android-sdk/tools \ 
@@ -75,6 +75,7 @@ WORKDIR /project
 
 # 1- Android SDK Tools, revision 25.2.4
 # 2- Android SDK Platform-tools, revision 25.0.3
+# 3- Android SDK Build-tools, revision 25.0.2
 # 16- Android SDK Build-tools, revision 21.1.2
 # 35- SDK Platform Android 6.0, API 23, revision 3
 # 36- SDK Platform Android 5.1.1, API 22, revision 2
@@ -86,9 +87,14 @@ WORKDIR /project
 # 173- Google Repository, revision 41
 #
 # 34- SDK Platform Android 7.0, API 24, revision 2
-#
+# 35- SDK Platform Android 6.0, API 23, revision 3
 # 36- SDK Platform Android 5.1.1, API 22, revision 2
 # update sdk -u -a -t 1,2,16,42,115,166,172,173
 
 
 
+# TODO
+#  INCLUIR!!!!
+# 1. "SDK Platform" for android-23
+# 2. "Android SDK Platform-tools (latest)
+# 3. "Android SDK Build-tools" (latest)
