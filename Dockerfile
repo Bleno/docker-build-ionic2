@@ -39,9 +39,9 @@ RUN mkdir -p /opt/android-sdk \
 
 RUN echo yes | /opt/android-sdk/tools/android update sdk -u -a -t 1,2,3,42,115,166,172,173,34,35,36 
 
-RUN mv /opt/android-sdk/tools /opt/android-sdk/temp/ToolPackage.old01. \
-    && mkdir /opt/android-sdk/tools \ 
-    && unzip -d /opt/android-sdk /opt/android-sdk/temp/tools_r25.2.4-linux.zip
+# RUN mv /opt/android-sdk/tools /opt/android-sdk/temp/ToolPackage.old01. \
+#     && mkdir -p /opt/android-sdk/tools \ 
+#     && unzip -d /opt/android-sdk /opt/android-sdk/temp/tools_r25.2.4-linux.zip
 
 ENV ANDROID_SDK_ROOT=/opt/android-sdk 
 
