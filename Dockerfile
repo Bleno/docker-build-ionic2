@@ -39,7 +39,7 @@ RUN mkdir -p /opt/android-sdk \
     && unzip tools_r25.2.5-linux.zip
 
 
-RUN echo yes | /opt/android-sdk/tools/android update sdk -u -a -t 1,2,3,33,162,168,169 #,3,42,115,166,172,173,34,35,36 
+RUN echo yes | /opt/android-sdk/tools/android update sdk -u -a -t 2,3,33,162,168,169 #,3,42,115,166,172,173,34,35,36 
 
 # RUN mv /opt/android-sdk/tools /opt/android-sdk/temp/ToolPackage.old01. \
 #     && mkdir -p /opt/android-sdk/tools \ 
