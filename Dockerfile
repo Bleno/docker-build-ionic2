@@ -31,13 +31,15 @@ RUN  apt-get update \
 # RUN wget http://dl.google.com/android/android-sdk_r24.3.1-linux.tgz \
 #     && tar -zxvf android-sdk_r24.3.1-linux.tgz
 
+# TODO ATUALIZAR https://dl.google.com/android/repository/tools_r25.2.5-linux.zip
+
 RUN mkdir -p /opt/android-sdk \
     && cd /opt/android-sdk \
-    && wget  https://dl.google.com/android/repository/tools_r25.2.3-linux.zip \
-    && unzip tools_r25.2.3-linux.zip
+    && wget   https://dl.google.com/android/repository/tools_r25.2.5-linux.zip \
+    && unzip tools_r25.2.5-linux.zip
 
 
-RUN echo yes | /opt/android-sdk/tools/android update sdk -u -a -t 1,2,3,42,115,166,172,173,34,35,36 
+RUN echo yes | /opt/android-sdk/tools/android update sdk -u -a -t 1,2,3,33,162,168,169 #,3,42,115,166,172,173,34,35,36 
 
 # RUN mv /opt/android-sdk/tools /opt/android-sdk/temp/ToolPackage.old01. \
 #     && mkdir -p /opt/android-sdk/tools \ 
@@ -57,7 +59,7 @@ ENV ANDROID_HOME=/opt/android-sdk \
 #     && echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_SDK/licenses/opt/android-sdk-preview-license"
 
 
-RUN rm /opt/android-sdk/tools_r25.2.3-linux.zip \
+RUN rm /opt/android-sdk/tools_r25.2.5-linux.zip \
     && apt-get -y autoclean && apt-get -y autoremove \
     && rm -rf /tmp/* \
     && rm -rf /opt/android-sdk/temp/*
@@ -67,11 +69,18 @@ RUN mkdir /project
 #entrypoint
 WORKDIR /project
 
+# android list sdk --all
+# 1,2,3,33,162,168,169
 
+# ANDROID Tools 25.2.5 install
 
-
-# ANDROID install
-
+# 1- Android SDK Tools, revision 25.2.5
+# 2- Android SDK Platform-tools, revision 25.0.3
+# 3- Android SDK Build-tools, revision 25.0.2
+# 33- SDK Platform Android 7.1.1, API 25, revision 3
+# 162- Android Support Repository, revision 44
+# 168- Google Play services, revision 39
+# 169- Google Repository, revision 44
 
 # 1- Android SDK Tools, revision 25.2.4
 # 2- Android SDK Platform-tools, revision 25.0.3
