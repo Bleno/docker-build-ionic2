@@ -38,21 +38,36 @@ RUN mkdir -p /opt/android-sdk \
     && wget   https://dl.google.com/android/repository/tools_r25.2.5-linux.zip \
     && unzip tools_r25.2.5-linux.zip
 
-
-RUN echo yes | /opt/android-sdk/tools/android update sdk -u -a -t 2,3,33,162,168,169 #,3,42,115,166,172,173,34,35,36 
+# Android SDK Tool 25.2.5
+# Android SDK Platform-tools 26
+# Android SDK Build-tools 23.0.1
+# SDK Platform API 25 rev. 3
+# Android support Reposotory 47
+# Google Play Services 42
+# Google Repository 55
+RUN echo yes | /opt/android-sdk/tools/android update sdk -u -a -t 2,14,36,42,170,176,178 #,168,169 #,3,42,115,166,172,173,34,35,36 
 
 # RUN mv /opt/android-sdk/tools /opt/android-sdk/temp/ToolPackage.old01. \
 #     && mkdir -p /opt/android-sdk/tools \ 
 #     && unzip -d /opt/android-sdk /opt/android-sdk/temp/tools_r25.2.4-linux.zip
+
+RUN mkdir -p /opt/gradle \
+    && cd /opt/gradle \
+    && wget https://services.gradle.org/distributions/gradle-3.2-bin.zip \
+    && unzip gradle-3.2-bin.zip
 
 ENV ANDROID_SDK_ROOT=/opt/android-sdk 
 
 # # develop environment
 ENV ANDROID_HOME=/opt/android-sdk \
     JAVA_HOME=/usr/lib/jvm/java-8-oracle/ \
+    GRADLE=/opt/gradle/gradle-3.2/bin \
+
 # Add environment variable ANDROID_SDK_ROOT
     PATH=$ANDROID_SDK_ROOT:$PATH \
     PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
+
+ENV PATH=$GRADLE:$PATH
 
 # RUN mkdir "$ANDROID_SDK/licenses" || true \
 #     &&  echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_SDK/licenses/opt/android-sdk-license" \
@@ -62,7 +77,8 @@ ENV ANDROID_HOME=/opt/android-sdk \
 RUN rm /opt/android-sdk/tools_r25.2.5-linux.zip \
     && apt-get -y autoclean && apt-get -y autoremove \
     && rm -rf /tmp/* \
-    && rm -rf /opt/android-sdk/temp/*
+    && rm -rf /opt/android-sdk/temp/* \
+    && rm -f /opt/gradle/gradle-3.2-bin.zip
 
 RUN mkdir /project
 
