@@ -11,9 +11,7 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g npm \
     && npm install -g cordova \
-    && npm install -g ionic \
-    && npm install -g bower
-
+    && npm install -g ionic
 
 # https://developer.android.com/studio/install.html?pkg=tools
 # lib32z1 lib32ncurses5 lib32bz2-1.0 lib32stdc++6
