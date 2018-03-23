@@ -5,6 +5,8 @@ Build a ionic 2 app
 
 ## Build project
 
+    cd name-project
+
 	npm install
 
     ionic cordova platform add android
@@ -23,14 +25,20 @@ Build a ionic 2 app
 Versions Components:
 
 * Java 8
-* Gradle 3.2
-* Node 6.11.1
-* Cordova 7.0.1
-* Ionic 3.5.0
-* Android SDK Tool 25.2.5
-* Android SDK Platform-tools 26
-* Android SDK Build-tools 23.0.1
-* SDK Platform API 25 rev. 3
+* Gradle 4.6
+* Node 6.13.1
+* Cordova 8.0.0
+* Ionic 3.20.0
+* Android SDK Tool 26.0.1
+* Android SDK Platform-tools 27.0.1
+* Android SDK Build-tools 27.0.3
+* SDK Platform API 26 rev. 2
 * Android support Reposotory 47
-* Google Play Services 42
-* Google Repository 55
+* Google Play Services 48
+* Google Repository 58
+
+
+## SDK Manager
+
+
+    /opt/android-sdk/tools/bin/sdkmanager --sdk_root=/opt/android-sdk/ "build-tools;27.0.3" "sources;android-27" "extras;android;m2repository" "extras;google;m2repository" "extras;google;google_play_services"
