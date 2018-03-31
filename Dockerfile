@@ -5,9 +5,9 @@ MAINTAINER Bleno <blenobok@gmail.com>
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y wget curl tar  build-essential software-properties-common \
-    && add-apt-repository ppa:webupd8team/java -y
+    && echo y | add-apt-repository ppa:jonathonf/openjdk
 
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g cordova \
     && npm install -g ionic
@@ -16,10 +16,8 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
 # lib32z1 lib32ncurses5 lib32bz2-1.0 lib32stdc++6
 # python for general scripts
 # sendemail for send email notification
-# java8 oracle
 RUN  apt-get update \
-     && echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections \
-     && apt-get install -y python git make zip oracle-java8-installer \
+     && apt-get install -y python git make zip openjdk-8-jdk \
      libnet-ssleay-perl libio-socket-ssl-perl sendemail \
      lib32z1 lib32ncurses5 lib32bz2-1.0 lib32stdc++6
 
@@ -47,7 +45,7 @@ ENV ANDROID_SDK_ROOT=/opt/android-sdk
 
 # # develop environment
 ENV ANDROID_HOME=/opt/android-sdk \
-    JAVA_HOME=/usr/lib/jvm/java-8-oracle/ \
+    JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \
     GRADLE=/opt/gradle/gradle-4.6/bin \
 
 # Add environment variable ANDROID_SDK_ROOT
