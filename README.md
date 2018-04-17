@@ -26,7 +26,7 @@ Versions Components:
 
 * Java 8
 * Gradle 4.6
-* Node 6.13.1
+* Node 8
 * Cordova 8.0.0
 * Ionic 3.20.0
 * Android SDK Tool 26.0.1

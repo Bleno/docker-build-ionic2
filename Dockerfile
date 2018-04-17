@@ -41,7 +41,7 @@ RUN mkdir -p /opt/gradle \
     && wget https://services.gradle.org/distributions/gradle-4.6-bin.zip \
     && unzip gradle-4.6-bin.zip
 
-ENV ANDROID_SDK_ROOT=/opt/android-sdk 
+ENV ANDROID_SDK_ROOT=/opt/android-sdk
 
 # # develop environment
 ENV ANDROID_HOME=/opt/android-sdk \
